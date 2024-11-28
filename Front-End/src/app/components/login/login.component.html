@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <form [formGroup]="loginForm" class="w-25" (ngSubmit)="loginUsuario()">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Digite seu email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" class="form-control" formControlName="senha" placeholder="Digite sua senha">
+      </div>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Acessar</button>
+    </form>
+  </div>
