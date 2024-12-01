@@ -4,6 +4,5 @@ CREATE TABLE FUNCIONARIO (
    nome VARCHAR(100),
    cargo VARCHAR(100),
    email VARCHAR(60),
-   senha VARCHAR(50),
-   
+   senha VARCHAR(50)
 );
