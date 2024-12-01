@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-obra',
   standalone: true,
   imports: [],
-  templateUrl: './obra.component.html',
-  styleUrl: './obra.component.css'
+  templateUrl: './obra.component.html'
 })
 export class ObraComponent {
 

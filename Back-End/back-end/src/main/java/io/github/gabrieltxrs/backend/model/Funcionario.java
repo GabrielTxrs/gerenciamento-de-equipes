@@ -13,6 +13,7 @@ public class Funcionario {
     private Long   idFuncionario;
     private String nome;
     private String cargo;
+    private String cpf;
     private String email;
     private String senha;
 
