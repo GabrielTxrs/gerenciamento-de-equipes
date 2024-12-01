@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 public class Funcionario {
     @Id
-    private Long id;
-    private String noma;
+    private Long   idFuncionario;
+    private String nome;
     private String cargo;
     private String email;
     private String senha;
@@ -20,9 +20,9 @@ public class Funcionario {
         // Construtor padrão do Jackson
     }
 
-    public Funcionario(Long id, String noma, String cargo, String email, String senha) {
-        this.id = id;
-        this.noma = noma;
+    public Funcionario(Long idFuncionario, String nome, String cargo, String email, String senha) {
+        this.idFuncionario = idFuncionario;
+        this.nome = nome;
         this.cargo = cargo;
         this.email = email;
         this.senha = senha;
