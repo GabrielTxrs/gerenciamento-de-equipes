@@ -1,6 +1,7 @@
 package io.github.gabrieltxrs.backend.controller;
 
 import io.github.gabrieltxrs.backend.model.DadosLogin;
+import io.github.gabrieltxrs.backend.model.Funcionario;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,21 @@ public class FuncionarioController {
     @PostMapping("/login")
     public String loginFuncionario(
             @RequestBody DadosLogin dadosLogin) {
-        System.out.println(dadosLogin.getEmail());
-        System.out.println(dadosLogin.getSenha());
-
-//        System.out.println("Chegou no controller");
-        return "{\"token\": \"autorizado\"}";
-//        return funcionarioService.loginFuncioanrio(dadosLogin);
+        return funcionarioService.loginFuncionario(dadosLogin);
 
     }
+
+    @PostMapping("/cadastro")
+    public Funcionario cadastrarFuncionario(
+            @RequestBody Funcionario funcionario) {
+        return funcionarioService.cadastrarFuncionario(funcionario);
+    }
+
+    @PostMapping("/get/{id}")
+    public Funcionario getFuncionario(
+            @RequestBody Long id) {
+        return funcionarioService.getFuncionarioPorId(id);
+    }
+
+
 }
