@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DadosLogin } from '../model/funcionario';
+import { DadosLogin } from '../model/funcionario-model';
 
 @Injectable({
   providedIn: 'root'
