@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.github.gabrieltxrs.backend.service.FuncionarioService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionarioController {
@@ -33,6 +35,12 @@ public class FuncionarioController {
     public Funcionario getFuncionarioPorId(
             @PathVariable Long id) {
         return funcionarioService.getFuncionarioPorId(id);
+    }
+
+    @GetMapping("/get/obra/{idObra}")
+    public List<Funcionario> getFuncionarioObraPorId(
+            @PathVariable Long idObra) {
+        return funcionarioService.getFuncionariosObra(idObra);
     }
 
 

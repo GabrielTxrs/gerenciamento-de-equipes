@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import io.github.gabrieltxrs.backend.repository.FuncionarioRepository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,6 +35,9 @@ public class FuncionarioService {
         return funcionarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionário não encontrado."));
     }
 
+    public List<Funcionario> getFuncionariosObra(Long idObra){
+            return funcionarioRepository.findByObra_IdObra(idObra);
+    }
 //    public void deletarFuncionario(Long id) {
 //        funcionarioRepository.deleteById(id);
 //    }

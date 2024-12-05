@@ -1,5 +1,6 @@
 package io.github.gabrieltxrs.backend.service;
 
+import io.github.gabrieltxrs.backend.model.Funcionario;
 import io.github.gabrieltxrs.backend.model.Obra;
 import io.github.gabrieltxrs.backend.repository.ObraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +37,6 @@ public class ObraService{
         }
         return false;
     }
+
+
 }

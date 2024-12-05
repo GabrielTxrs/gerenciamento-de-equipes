@@ -1,9 +1,12 @@
 package io.github.gabrieltxrs.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,24 +19,16 @@ public class Obra {
 
     private String status;
 
-    @OneToMany(mappedBy = "obra") // Relacionamento de um-para-muitos (uma obra, vários funcionários)
+    @OneToMany(mappedBy = "obra",cascade = CascadeType.PERSIST) // Relacionamento de um-para-muitos (uma obra, vários funcionários)
+    @JsonIgnore
     private List<Funcionario> funcionariosAlocados; // Funcionários alocados à obra
 
-    private Funcionario gerente;
+    private LocalDate dataInicio;
 
-    // Método para obter o gerente da obra
-    public Funcionario getGerente() {
-        if(funcionariosAlocados==null){
-            return null;
-        }
+    private LocalDate dataFim;
 
-        for (Funcionario func : funcionariosAlocados) {
-            if (Cargo.GERENTE_LOCAL.equals(func.getCargo())) {
-                return func;
-            }
-        }
-        return null; // Caso não haja gerente alocado
-    }
+
+
     public Obra(){
 
     }
@@ -41,7 +36,6 @@ public class Obra {
     public Obra(String status) {
 
         this.status = status;
-        this.gerente = getGerente();
     }
 }
 
