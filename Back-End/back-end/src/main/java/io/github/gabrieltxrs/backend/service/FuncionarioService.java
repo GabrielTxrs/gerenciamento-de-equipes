@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import io.github.gabrieltxrs.backend.repository.FuncionarioRepository;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,14 +30,20 @@ public class FuncionarioService {
     public Funcionario cadastrarFuncionario(Funcionario funcionario) {
         return funcionarioRepository.save(funcionario);
     }
-
+    public List<Funcionario> getAllFuncionarios() {
+        List<Funcionario> funcionarios = funcionarioRepository.findAll();
+        if(!funcionarios.isEmpty()) {
+            return funcionarios;
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhum funcionário cadastrado.");
+    }
     public Funcionario getFuncionarioPorId(Long id) {
         return funcionarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionário não encontrado."));
     }
 
-//    public void deletarFuncionario(Long id) {
-//        funcionarioRepository.deleteById(id);
-//    }
+    public void deletarFuncionario(Long id) {
+        funcionarioRepository.deleteById(id);
+    }
 
 //    public Funcionario atualizarFuncionario(Funcionario funcionario) {
 //        return funcionarioRepository.save(funcionario);

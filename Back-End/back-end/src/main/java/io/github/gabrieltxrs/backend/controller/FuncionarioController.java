@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.github.gabrieltxrs.backend.service.FuncionarioService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionarioController {
@@ -20,7 +22,6 @@ public class FuncionarioController {
     public String loginFuncionario(
             @RequestBody DadosLogin dadosLogin) {
         return funcionarioService.loginFuncionario(dadosLogin);
-
     }
 
     @PostMapping("/cadastro")
@@ -29,11 +30,19 @@ public class FuncionarioController {
         return funcionarioService.cadastrarFuncionario(funcionario);
     }
 
+    @GetMapping("/get")
+    public List<Funcionario> getAllFuncionarios() {
+        return funcionarioService.getAllFuncionarios();
+    }
     @GetMapping("/get/{id}")
     public Funcionario getFuncionarioPorId(
             @PathVariable Long id) {
         return funcionarioService.getFuncionarioPorId(id);
     }
-
+    @DeleteMapping("/delete/{id}")
+    public void deletarFuncionario(
+            @PathVariable Long id) {
+        funcionarioService.deletarFuncionario(id);
+    }
 
 }

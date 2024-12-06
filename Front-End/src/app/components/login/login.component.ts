@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DadosLogin } from '../../model/funcionario-model';
 import { Router } from '@angular/router';
 

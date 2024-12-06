@@ -1,7 +1,6 @@
 package io.github.gabrieltxrs.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,14 @@ import lombok.Setter;
 @Setter
 public class Funcionario {
     @Id
-    private Long   idFuncionario;
+    @SequenceGenerator(name = "funcionario_sequence",
+            sequenceName = "funcionario_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "funcionario_sequence"
+    )
+    private Long idFuncionario;
     private String nome;
     private String cargo;
     private String cpf;

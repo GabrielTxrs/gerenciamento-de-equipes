@@ -5,6 +5,7 @@ export interface DadosLogin {
 
 export interface Funcionario {
     idFuncionario?: number;
+    cpf: string;
     nome: string;
     cargo: string;
     email: string;
